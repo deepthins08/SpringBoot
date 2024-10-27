@@ -53,7 +53,15 @@ public class MovieController {
         log.info("running getByName");
         return ResponseEntity.ok(personService.getByName(name));
     }
-//config swagger api
+
+
+    @GetMapping
+    public List<MovieDTO> getMovies(){
+        System.out.println("running getMovies");
+        return movieRepo.findAll();
+    }
+
+    //config swagger api
     //config logback or sl4j
 //    @PostMapping
 //    public String saveMovies(){
@@ -62,11 +70,5 @@ public class MovieController {
 //        movieRepo.save(movieDTO);
 //        return "saved";
 //    }
-
-    @GetMapping
-    public List<MovieDTO> getMovies(){
-        System.out.println("running getMovies");
-        return movieRepo.findAll();
-    }
 
 }
